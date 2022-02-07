@@ -151,7 +151,7 @@ export function useRemainingTime() {
 
 export function getGameNum(gameDate: string): number {
   return Math.ceil(
-    (new Date(gameDate).getTime() - new Date("2022-01-20").getTime()) /
+    (new Date(gameDate).getTime() - new Date("2022-02-07").getTime()) /
       24 /
       60 /
       60 /

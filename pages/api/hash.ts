@@ -22,10 +22,10 @@ export default async function handler(
 
   const entry = db.results[0] as any;
   const date = entry.properties.Date.date.start;
-  const word = entry.properties.Word.title[0].plain_text;
+  const katna = entry.properties.Katna.title[0].plain_text.toLowerCase();
   res.setHeader(
     "Cache-Control",
     "public, s-maxage=60, stale-while-revalidate=3600"
   );
-  res.status(200).json({ hash: encode(word), date: date });
+  res.status(200).json({ hash: encode(katna), date: date });
 }

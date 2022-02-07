@@ -290,7 +290,7 @@ export default function StatsModal(props: Props) {
 }
 
 function WordDefinition({ answer }) {
-  const { data = [] } = useSWR(`/api/define/${answer}`, fetcher);
+  const { data = {} } = useSWR(`/api/define/${answer}`, fetcher);
 
   return (
     <div className="w-10/12 mx-auto mb-8">
@@ -301,26 +301,8 @@ function WordDefinition({ answer }) {
       </p>
       <p>
         <strong>{answer}</strong>
-        {data.length > 0 ? (
-          data.length === 1 ? (
-            `: ${data[0]}`
-          ) : (
-            <ul className="text-sm">
-              {data.map((d, i) => (
-                <li className=" list-outside list-disc ml-6" key={i}>
-                  {d}
-                </li>
-              ))}
-            </ul>
-          )
-        ) : null}
+        <p>artinya: {data.kata}</p>
       </p>
-      <a
-        className="text-green-600 text-sm"
-        href={`https://kbbi.kemdikbud.go.id/entri/${answer}`}
-      >
-        Lihat di KBBI
-      </a>
     </div>
   );
 }

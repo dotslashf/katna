@@ -193,14 +193,14 @@ export default function App(props: Props) {
     }
 
     function handleResize() {
-      const katla = document.querySelector("#katla") as HTMLDivElement;
+      const katna = document.querySelector("#katna") as HTMLDivElement;
       const height =
         window.innerHeight -
         document.querySelector("#header").getBoundingClientRect().height -
         document.querySelector("#keyboard").getBoundingClientRect().height;
       const width = window.innerWidth;
-      katla.style.height = Math.min(height, width) + "px";
-      katla.style.width = Math.min(height, width) + "px";
+      katna.style.height = Math.min(height, width) + "px";
+      katna.style.width = Math.min(height, width) + "px";
     }
 
     handleResize();

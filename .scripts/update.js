@@ -13,10 +13,10 @@ async function getUsedWords(cursor) {
 
   const words = db.results
     .filter((result) => {
-      return result.properties.Word.title.length > 0;
+      return result.properties.Katna.title.length > 0;
     })
     .map((result) => {
-      return result.properties.Word.title[0].plain_text;
+      return result.properties.Katna.title[0].plain_text;
     });
 
   if (db.has_more) {
@@ -27,7 +27,7 @@ async function getUsedWords(cursor) {
   return words;
 }
 
-async function insertWord(word) {
+async function insertWord({ katna, kata }) {
   const now = getMidnightDate();
   const year = now.getFullYear();
   const month = (now.getMonth() + 1).toString().padStart(2, "0");
@@ -44,17 +44,26 @@ async function insertWord(word) {
           start: `${year}-${month}-${date}`,
         },
       },
-      Word: {
+      Katna: {
         title: [
           {
             type: "text",
             text: {
-              content: word,
+              content: katna,
               link: null,
             },
             annotations: {},
-            plain_text: word,
+            plain_text: katna,
             href: null,
+          },
+        ],
+      },
+      Arti: {
+        type: "rich_text",
+        rich_text: [
+          {
+            type: "text",
+            text: { content: kata },
           },
         ],
       },
@@ -75,15 +84,12 @@ function getMidnightDate() {
 async function main() {
   const [usedWords, allWords] = await Promise.all([
     getUsedWords(),
-    fs.readFile(path.join(__dirname, "whitelist.csv"), "utf-8").then((text) =>
-      text
-        .split(",")
-        .map((s) => s.trim())
-        .filter(Boolean)
-    ),
+    fs
+      .readFile(path.join(__dirname, "words.json"), "utf-8")
+      .then((text) => JSON.parse(text)),
   ]);
 
-  const validWords = allWords.filter((word) => !usedWords.includes(word));
+  const validWords = allWords.filter((word) => !usedWords.includes(word.katna));
 
   // use let to allow secret words
   let word = validWords[Math.floor(Math.random() * validWords.length)];

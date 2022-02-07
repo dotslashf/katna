@@ -19,7 +19,7 @@ export default function Board(props: Props) {
     <div
       className="grid grid-rows-6 gap-1.5 max-w-full"
       style={{ aspectRatio: "1 / 1" }}
-      id="katla"
+      id="katna"
     >
       {Array(6)
         .fill("")

@@ -1,5 +1,5 @@
 {
-  "name": "katla",
+  "name": "katna",
   "private": true,
   "scripts": {
     "dev": "next dev",

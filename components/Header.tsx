@@ -15,7 +15,7 @@ interface Props {
 
 export default function Header(props: Props) {
   const {
-    title = "Katla - Permainan Tebak Kata | 1 Hari 1 Kata 6 Kesempatan",
+    title = "Katna - Permainan Tebak Kata | 1 Hari 1 Kata 6 Kesempatan",
     description = "Tebak kata rahasia dalam 6 percobaan. Kata baru tersedia setiap hari.",
     keywords = [
       "game",
@@ -35,7 +35,7 @@ export default function Header(props: Props) {
       "bangsa",
       "kbbi",
     ],
-    ogImage = "https://katla.vercel.app/og.png",
+    ogImage = "https://katna.vercel.app/og.png",
     customHeading,
     onShowStats,
     onShowHelp,
@@ -48,7 +48,7 @@ export default function Header(props: Props) {
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords.join(", ")} />
-        <meta property="og:url" content="https://katla.vercel.app/" />
+        <meta property="og:url" content="https://katna.vercel.app/" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
@@ -56,7 +56,7 @@ export default function Header(props: Props) {
         <meta property="og:image" content={ogImage} />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta property="twitter:domain" content="katla.vercel.app" />
+        <meta property="twitter:domain" content="katna.vercel.app" />
 
         <meta name="theme-color" content="#15803D" />
         <link href="/katla-32x32.png" rel="icon shortcut" sizes="3232" />
