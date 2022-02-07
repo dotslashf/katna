@@ -18,6 +18,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
   if (!arti) {
     res.status(500).json({ error: "kata tidak ditemukan" });
+    throw new Error(`Word not found: ${word}`);
   }
 
   res.setHeader(
