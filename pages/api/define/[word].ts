@@ -16,6 +16,10 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
   const arti = allWords.find((words) => words.katna.toLowerCase() === word);
 
+  if (!arti) {
+    res.status(500).json({ error: "kata tidak ditemukan" });
+  }
+
   res.setHeader(
     "Cache-Control",
     "public, s-maxage=21600, stale-while-revalidate=86400"
