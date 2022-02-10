@@ -48,7 +48,7 @@ export default function Header(props: Props) {
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords.join(", ")} />
-        <meta property="og:url" content="https://katna.vercel.app/" />
+        <meta property="og:url" content="https://katna.vercel.app" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
