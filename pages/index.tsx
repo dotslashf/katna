@@ -205,7 +205,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
         },
       ],
     }),
-    fetcher("https://katla.vercel.app/api/words"),
+    fetcher("https://katna.vercel.app/api/words"),
   ]);
 
   const entry = db.results[0] as any;
