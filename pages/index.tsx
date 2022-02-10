@@ -6,6 +6,7 @@ import React, {
   useState,
 } from "react";
 import { GetStaticProps } from "next";
+import { Client } from "@notionhq/client";
 
 import Container from "../components/Container";
 import Header from "../components/Header";
@@ -22,7 +23,7 @@ import {
   getTotalPlay,
   getGameNum,
 } from "../utils/game";
-import { decode } from "../utils/codec";
+import { decode, encode } from "../utils/codec";
 import { GAME_STATS_KEY } from "../utils/constants";
 import { GameStats } from "../utils/types";
 import fetcher from "../utils/fetcher";
@@ -190,15 +191,30 @@ export default function Home(props: Props) {
   );
 }
 
+const databaseId = process.env.NOTION_DATABASE_ID;
+const notion = new Client({ auth: process.env.NOTION_API_KEY });
+
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const [{ hash, date }, words] = await Promise.all([
-    fetcher("https://katna.vercel.app/api/hash"),
-    fetcher("https://katna.vercel.app/api/words"),
+  const [db, words] = await Promise.all([
+    notion.databases.query({
+      database_id: databaseId,
+      sorts: [
+        {
+          property: "Date",
+          direction: "descending",
+        },
+      ],
+    }),
+    fetcher("https://katla.vercel.app/api/words"),
   ]);
+
+  const entry = db.results[0] as any;
+  const date = entry.properties.Date.date.start;
+  const katna = entry.properties.Katna.title[0].plain_text.toLowerCase();
 
   return {
     props: {
-      hash: hash,
+      hash: encode(katna),
       date: date,
       words: words,
     },
