@@ -73,7 +73,7 @@ export default function Debug(props: Props) {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const { hash, date } = await fetch("https://katla.vercel.app/api/hash").then(
+  const { hash, date } = await fetch("https://katna.vercel.app/api/hash").then(
     (res) => res.json()
   );
   return {

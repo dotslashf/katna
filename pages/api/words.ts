@@ -15,5 +15,5 @@ export default async function handler(
     "Cache-Control",
     "public, s-maxage=3600, stale-while-revalidate=86400"
   );
-  res.status(200).json(allWords);
+  res.status(200).json(allWords.replace(/^\ufeff/g, ""));
 }
