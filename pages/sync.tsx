@@ -5,12 +5,12 @@ import {
   LAST_HASH_KEY,
 } from "../utils/constants";
 
-const VALID_EVENT_ORIGIN = "https://katla.vercel.app";
+const VALID_EVENT_ORIGIN = "http://localhost:3001";
 
 export default function SyncPage() {
   useEffect(() => {
     if (window.location === window.parent.location) {
-      window.location.replace("https://katla.vercel.app");
+      window.location.replace("http://localhost:3001");
       return;
     }
 
