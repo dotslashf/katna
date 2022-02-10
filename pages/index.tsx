@@ -192,8 +192,8 @@ export default function Home(props: Props) {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const [{ hash, date }, words] = await Promise.all([
-    fetcher("http://localhost:3001/api/hash"),
-    fetcher("http://localhost:3001/api/words"),
+    fetcher("https://katna.vercel.app//api/hash"),
+    fetcher("https://katna.vercel.app//api/words"),
   ]);
 
   return {
