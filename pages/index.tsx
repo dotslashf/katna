@@ -28,6 +28,8 @@ import { GAME_STATS_KEY } from "../utils/constants";
 import { GameStats } from "../utils/types";
 import fetcher from "../utils/fetcher";
 import createStoredState from "../utils/useStoredState";
+import fs from "fs/promises";
+import path from "path";
 
 interface Props {
   hash: string;
@@ -205,7 +207,12 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
         },
       ],
     }),
-    fetcher("https://katna.vercel.app/api/words"),
+    JSON.parse(
+      await fs.readFile(
+        path.join(__dirname, "../../../../.scripts/words.json"),
+        "utf-8"
+      )
+    ) as string[],
   ]);
 
   const entry = db.results[0] as any;
