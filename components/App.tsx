@@ -90,7 +90,7 @@ export default function App(props: Props) {
     if (!words.includes(userAnswer)) {
       markInvalid();
       trackEvent("invalid_word", { word: userAnswer });
-      showMessage("Tidak ada dalam KBBI");
+      showMessage("Tidak ada dalam kamus");
       game.trackInvalidWord(userAnswer);
       return;
     }

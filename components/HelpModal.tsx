@@ -50,19 +50,19 @@ export default function HelpModal(props: Props) {
           className="grid grid-cols-5 grid-rows-1 gap-1.5 w-64 mb-2"
           style={{ aspectRatio: "6 / 1" }}
         >
-          {"meong".split("").map((char, i) => {
+          {"agaru".split("").map((char, i) => {
             return (
               <Tile
                 key={i}
                 char={char}
-                state={char === "m" ? "exist" : null}
+                state={char === "u" ? "exist" : null}
                 delay={0}
               />
             );
           })}
         </div>
         <div className="mb-4">
-          Huruf <strong>M</strong> ada namun posisinya belum tepat
+          Huruf <strong>U</strong> ada namun posisinya belum tepat
         </div>
         <div
           className="grid grid-cols-5 grid-rows-1 gap-1.5 w-64 mb-2"

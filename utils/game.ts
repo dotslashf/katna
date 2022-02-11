@@ -1,7 +1,12 @@
 import { useEffect, useState, useRef } from "react";
 import * as Sentry from "@sentry/nextjs";
 
-import { LAST_HASH_KEY, GAME_STATE_KEY, INVALID_WORDS_KEY } from "./constants";
+import {
+  LAST_HASH_KEY,
+  GAME_STATE_KEY,
+  INVALID_WORDS_KEY,
+  DAY_ONE,
+} from "./constants";
 import { AnswerState, GameState, GameStats } from "./types";
 import LocalStorage, { isStorageEnabled } from "./browser";
 import createStoredState from "./useStoredState";
@@ -151,7 +156,7 @@ export function useRemainingTime() {
 
 export function getGameNum(gameDate: string): number {
   return Math.ceil(
-    (new Date(gameDate).getTime() - new Date("2022-02-07").getTime()) /
+    (new Date(gameDate).getTime() - new Date(DAY_ONE).getTime()) /
       24 /
       60 /
       60 /
