@@ -197,23 +197,24 @@ const databaseId = process.env.NOTION_DATABASE_ID;
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const [db, words] = await Promise.all([
-    notion.databases.query({
-      database_id: databaseId,
-      sorts: [
-        {
-          property: "Date",
-          direction: "descending",
-        },
-      ],
-    }),
-    JSON.parse(
-      await fs.readFile(
-        path.join(__dirname, "../../../../.scripts/words.json"),
-        "utf-8"
-      )
-    ) as string[],
-  ]);
+  const wordsMakassar = JSON.parse(
+    await fs.readFile(
+      path.join(__dirname, "../../../.scripts/words.json"),
+      "utf-8"
+    )
+  ) as [{ katna: string; kata: string }];
+
+  const words = wordsMakassar.map((word) => word.katna.toLowerCase());
+
+  const db = await notion.databases.query({
+    database_id: databaseId,
+    sorts: [
+      {
+        property: "Date",
+        direction: "descending",
+      },
+    ],
+  });
 
   const entry = db.results[0] as any;
   const date = entry.properties.Date.date.start;

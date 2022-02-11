@@ -8,3 +8,5 @@ export const INVALID_WORDS_KEY = "katla:invalidWords";
 export const SHAKE_ANIMATION_DURATION_MS = 600;
 export const FLIP_ANIMATION_DURATION_MS = 800;
 export const FLIP_ANIMATION_DELAY_MS = 400;
+
+export const DAY_ONE = "2022-02-10";
