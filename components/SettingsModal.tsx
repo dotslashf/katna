@@ -5,7 +5,6 @@ import {
   LAST_HASH_KEY,
   LAST_SESSION_RESET_KEY,
 } from "../utils/constants";
-import Link from "./Link";
 import Modal from "./Modal";
 import { useTheme } from "next-themes";
 import LocalStorage from "../utils/browser";
@@ -36,7 +35,15 @@ export default function SettingsModal(props: Props) {
     <Modal isOpen={isOpen} onClose={onClose}>
       <Modal.Title>Informasi</Modal.Title>
       <p className="mb-4">
-        <strong>Katla</strong> merupakan <s>imitasi</s> adaptasi dari{" "}
+        <strong>Katna</strong> adalah kata harian untuk bahasa daerah Makassar.
+        Katna merupakan hasil fork dari{" "}
+        <a
+          href="https://katla.vercel.app"
+          className="text-green-600 hover:text-green-700"
+        >
+          <strong>Katla</strong>
+        </a>{" "}
+        yang merupakan <s>imitasi</s> adaptasi dari{" "}
         <a
           href="https://www.powerlanguage.co.uk/wordle/"
           className="text-green-600 hover:text-green-700"
@@ -44,13 +51,7 @@ export default function SettingsModal(props: Props) {
           Wordle
         </a>
       </p>
-      <p className="mb-4">
-        Kamu bisa melihat daftar kata yang telah digunakan sebelumnya di dalam{" "}
-        <Link href="/arsip">
-          <a className="text-green-600 hover:text-green-700">Arsip</a>
-        </Link>
-      </p>
-      <div className="flex justify-between py-2 my-2 text-lg items-center border-b border-t border-gray-500">
+      <div className="flex justify-between py-2 my-2 items-center border-b border-t border-gray-500">
         <p>Dark Theme</p>
         <div
           className={`${
@@ -71,8 +72,6 @@ export default function SettingsModal(props: Props) {
       </div>
       <p>
         <h2 className="text-xl font-semibold">Terdapat Masalah?</h2>
-        <Link href="/debug">Laporkan bug</Link>
-        <span> atau </span>
         <button
           onClick={handleReset}
           className="text-green-600 hover:text-green-700"

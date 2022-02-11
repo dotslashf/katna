@@ -53,7 +53,7 @@ export default function StatsModal(props: Props) {
       game.state.answers[game.state.attempt - 1] === answer
         ? game.state.attempt
         : "X";
-    let text = `Katla ${num} ${score}/6\n\n`;
+    let text = `Katna ${num} ${score}/6\n\n`;
 
     game.state.answers.filter(Boolean).forEach((userAnswer) => {
       const answerEmojis = getAnswerStates(userAnswer, answer).map((state) => {
@@ -69,7 +69,7 @@ export default function StatsModal(props: Props) {
       text += `${answerEmojis.join("")}\n`;
     });
 
-    text += "\nhttps://katla.vercel.app";
+    text += "\nhttps://katna.vercel.app";
     return text;
   }
 
@@ -242,7 +242,7 @@ export default function StatsModal(props: Props) {
           <div className="flex items-center justify-between w-3/4 m-auto my-8 space-x-2">
             <div className="text-center flex flex-1 flex-col">
               <div className="font-semibold uppercase text-xs md:text-md">
-                Katla berikutnya
+                Katna berikutnya
               </div>
               <div className="text-xl md:text-4xl">{remainingTime}</div>
             </div>
@@ -294,7 +294,7 @@ function WordDefinition({ answer }) {
 
   return (
     <div className="w-10/12 mx-auto mb-8">
-      <h3 className="uppercase font-semibold">Katla hari ini</h3>
+      <h3 className="uppercase font-semibold">Katna hari ini</h3>
       <p className="text-xs mb-2 dark:text-gray-400 text-gray-600">
         Mohon untuk tetap dirahasiakan, semua orang mendapatkan kata yang sama
         🙏

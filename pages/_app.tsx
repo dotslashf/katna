@@ -5,7 +5,7 @@ import { ThemeProvider } from "next-themes";
 
 export default function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider storageKey="katla:theme" attribute="class">
+    <ThemeProvider storageKey="katna:theme" attribute="class">
       <Component {...pageProps} />
       <Script id="track-ga" strategy="afterInteractive">{`
         window.dataLayer = window.dataLayer || [];

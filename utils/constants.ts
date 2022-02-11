@@ -1,8 +1,8 @@
-export const LAST_HASH_KEY = "katla:lastHash";
-export const LAST_SESSION_RESET_KEY = "katla:lastSessionReset";
-export const GAME_STATE_KEY = "katla:gameState";
-export const GAME_STATS_KEY = "katla:gameStats";
-export const INVALID_WORDS_KEY = "katla:invalidWords";
+export const LAST_HASH_KEY = "katna:lastHash";
+export const LAST_SESSION_RESET_KEY = "katna:lastSessionReset";
+export const GAME_STATE_KEY = "katna:gameState";
+export const GAME_STATS_KEY = "katna:gameStats";
+export const INVALID_WORDS_KEY = "katna:invalidWords";
 
 // animation
 export const SHAKE_ANIMATION_DURATION_MS = 600;

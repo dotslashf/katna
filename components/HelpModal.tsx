@@ -1,3 +1,4 @@
+import Link from "./Link";
 import Modal from "./Modal";
 import Tile from "./Tile";
 
@@ -13,12 +14,13 @@ export default function HelpModal(props: Props) {
       <Modal.Title>Cara Bermain</Modal.Title>
       <div className="text-sm">
         <p className="mb-2">
-          Tebak <strong className="uppercase">Katla</strong> dalam 6 kesempatan.
+          Tebak <strong className="uppercase">Katna</strong> dalam 6 kesempatan.
           1 hari ada 1 kata rahasia.
         </p>
         <p className="mb-2">
-          Setiap tebakan harus merupakan kata valid 5 huruf sesuai KBBI. Tekan
-          tombol ENTER untuk mengirimkan jawaban
+          Setiap tebakan harus merupakan kata valid 5 huruf sesuai dengan kamus
+          yang ada pada <Link href="/api/words">disini</Link>. Tekan tombol
+          ENTER untuk mengirimkan jawaban
         </p>
         <p className="mb-2">
           Setelah jawaban dikirimkan, warna kotak akan berubah untuk menunjukkan
@@ -30,43 +32,43 @@ export default function HelpModal(props: Props) {
           className="grid grid-cols-5 grid-rows-1 gap-1.5 w-64 mb-2"
           style={{ aspectRatio: "6 / 1" }}
         >
-          {"semua".split("").map((char, i) => {
+          {"nakke".split("").map((char, i) => {
             return (
               <Tile
                 key={i}
                 char={char}
-                state={char === "s" ? "correct" : null}
+                state={char === "n" ? "correct" : null}
                 delay={0}
               />
             );
           })}
         </div>
         <div className="mb-4">
-          Huruf <strong>S</strong> ada dan posisinya sudah tepat
+          Huruf <strong>N</strong> ada dan posisinya sudah tepat
         </div>
         <div
           className="grid grid-cols-5 grid-rows-1 gap-1.5 w-64 mb-2"
           style={{ aspectRatio: "6 / 1" }}
         >
-          {"kasur".split("").map((char, i) => {
+          {"meong".split("").map((char, i) => {
             return (
               <Tile
                 key={i}
                 char={char}
-                state={char === "a" ? "exist" : null}
+                state={char === "m" ? "exist" : null}
                 delay={0}
               />
             );
           })}
         </div>
         <div className="mb-4">
-          Huruf <strong>A</strong> ada namun posisinya belum tepat
+          Huruf <strong>M</strong> ada namun posisinya belum tepat
         </div>
         <div
           className="grid grid-cols-5 grid-rows-1 gap-1.5 w-64 mb-2"
           style={{ aspectRatio: "6 / 1" }}
         >
-          {"duduk".split("").map((char, i) => {
+          {"larro".split("").map((char, i) => {
             return (
               <Tile
                 key={i}
@@ -82,7 +84,7 @@ export default function HelpModal(props: Props) {
         </div>
         <hr className="dark:border-gray-700 border-gray-500 mb-4" />
         <p className="font-semibold">
-          Akan ada <strong className="uppercase">Katla</strong> baru setiap
+          Akan ada <strong className="uppercase">Katna</strong> baru setiap
           hari!
         </p>
       </div>

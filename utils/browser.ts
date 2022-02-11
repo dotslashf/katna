@@ -74,7 +74,7 @@ export default LocalStorage;
 export function isStorageEnabled() {
   const randomKey = Math.random().toFixed(5);
   const randomValue = Math.random().toFixed(5);
-  const storageKey = `katla:test:${randomKey}`;
+  const storageKey = `katna:test:${randomKey}`;
   LocalStorage.setItem(storageKey, randomValue);
   const stored = LocalStorage.getItem(storageKey);
   if (stored === null) {
