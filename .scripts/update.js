@@ -85,7 +85,7 @@ async function main() {
   const [usedWords, allWords] = await Promise.all([
     getUsedWords(),
     fs
-      .readFile(path.join(__dirname, "words.json"), "utf-8")
+      .readFile(path.join(__dirname, "../public/words.json"), "utf-8")
       .then((text) => JSON.parse(text)),
   ]);
 

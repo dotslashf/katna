@@ -8,7 +8,7 @@ export default async function handler(
 ) {
   const allWords = JSON.parse(
     await fs.readFile(
-      path.join(__dirname, "../../../../.scripts/words.json"),
+      path.join(__dirname, "../../../../public/words.json"),
       "utf-8"
     )
   ) as [{ katna: string; kata: string }];
