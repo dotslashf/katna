@@ -11,10 +11,10 @@ export default function MyApp({ Component, pageProps }) {
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-QNLF4HTK6S');
+        gtag('config', 'GTM-P74SV84');
       `}</Script>
       <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-QNLF4HTK6S"
+        src="https://www.googletagmanager.com/gtag/js?id=GTM-P74SV84"
         strategy="afterInteractive"
       />
     </ThemeProvider>
